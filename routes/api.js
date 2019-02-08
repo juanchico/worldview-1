@@ -4,8 +4,8 @@ const User = require("../models/User.js");
 router.post("/api/User", function(req, res) {
   // as long as req.body matches what the model expects, this should insert into the database
   User.create(req.body)
-  .then(() => {
-    res.json(true);
+  .then((result) => {
+    res.json(result);
   })
   .catch((err) => {
     // if not, we can at least catch the errr
