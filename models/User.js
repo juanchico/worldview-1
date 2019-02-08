@@ -39,18 +39,12 @@ var userSchema = new Schema({
         type: String, 
         required: false
     },
-    followers: {
-        type: Array, 
-        required: false
-    },
-    following: {
-        type: Array,
-        required: false
-    },
     countriesVisited: {
         type: Array, 
         required: false
-    }
+    },
+    followers: [this],
+    following: [this]
 });
 
 const User = mongoose.model("User", userSchema);
