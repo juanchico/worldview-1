@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "./style.css";
+import axios from "axios";
+// import "./style.css";
 
-class Form extends Component {
+class SignUp extends Component {
   // Setting the component's initial state
   state = {
     name: "",
@@ -30,9 +31,13 @@ class Form extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
-    // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
-    alert(`Hello ${this.state.name} from ${this.state.country}`);
-    this.setState({
+      // send the entire state object to the back-end
+      axios.post("/api/User", this.state).then((response) => {
+        if (response.data === true) {
+          // clear state/input values
+           // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
+        alert(`Hello ${this.state.name} from ${this.state.country}`);
+      this.setState({
       name: "",
       email: "",
       password:"",
@@ -44,7 +49,13 @@ class Form extends Component {
       funFact:"",
       countriesVisited:"",
     });
-  };
+  }
+        // mongoose validation failed
+        else {
+          alert("Error. Try Again.");
+        }
+      });
+    };
 
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
@@ -129,16 +140,6 @@ class Form extends Component {
       </div>
     );
   }
-}
-
-export default Form;
-
-
-function SignUp() {
-  return (
-    <div>
-    </div>
-  );
 }
 
 export default SignUp;

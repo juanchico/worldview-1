@@ -7,6 +7,7 @@ import Feed from "./components/pages/Feed";
 import Country from "./components/pages/Country";
 import Profile from "./components/pages/Profile";
 import FProfile from "./components/pages/FProfile";
+import SignUp from "./components/pages/signup/SignUp";
 // import Search from "./components/pages/Search";
 import ErrorPage from "./components/pages/Error";
 
@@ -30,6 +31,7 @@ class App extends Component {
         <Route exact path="/feed" component={Feed} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/fprofile/:id" component={FProfile} />
+        <Route exact path="/signup" component={SignUp} />
         <Route path="/*"  component={ErrorPage} /> 
         <div>
         <BasicMap /> 
