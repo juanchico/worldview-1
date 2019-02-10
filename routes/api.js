@@ -21,7 +21,15 @@ router.get("/api/Users", function(req, res) {
   });
 });
 
-
+router.get("/api/Country/:name", function(req, res) {
+  // find all Users where quantity is greater than zero
+  console.log("working");
+  console.log(req.params.name);
+  User.find({country: req.params.name}).populate("followers")
+  .then((docs) => {
+    res.json(docs);
+  });
+});
 
 
 
