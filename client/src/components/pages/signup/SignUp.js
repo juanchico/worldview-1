@@ -33,7 +33,7 @@ class SignUp extends Component {
 
       // send the entire state object to the back-end
       axios.post("/api/User", this.state).then((response) => {
-        if (response.data === true) {
+        if (response.data) {
           // clear state/input values
            // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
         alert(`Hello ${this.state.name} from ${this.state.country}`);
@@ -49,9 +49,8 @@ class SignUp extends Component {
       funFact:"",
       countriesVisited:"",
     });
-  }
-        // mongoose validation failed
-        else {
+  } else {
+    // mongoose validation failed
           alert("Error. Try Again.");
         }
       });
