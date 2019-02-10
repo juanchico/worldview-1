@@ -32,6 +32,16 @@ router.get("/api/Country/:name", function(req, res) {
 });
 
 
+router.get("/api/User/:id", function(req, res) {
+  // find all Users where quantity is greater than zero
+  console.log("working");
+  User.findOne({_id: req.params.id}).populate("followers")
+  .then((docs) => {
+    res.json(docs);
+  });
+});
+
+
 
 
 module.exports = router;
