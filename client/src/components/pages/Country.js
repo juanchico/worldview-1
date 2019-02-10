@@ -1,22 +1,47 @@
 import React from "react";
+import axios from "axios";
+// import {Link} from "react-router-dom";
 // import SignUp from "./SignUp";
 
 // connect json file for country name and flag
 // connect all user avatars, name, and fun fact  
-function Country() {
-    console.log("country");
-  return (
-    <div className="hero text-center" style={ { backgroundImage: `url(require("https://i.imgur.com/qkdpN.jpg"))` } }>
-      <h1>Country</h1>
-      <p>
-        Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui
-        mauris, ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet ryisus ac finibus
-        porta. Nam quis arcu non lectus tincidunt fermentum. Suspendisse aliquet orci porta quam
-        semper imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus in. Sed
-        rhoncus mollis diam, sit amet facilisis lectus blandit at.
-      </p>
-    </div>
-  );
+// axios call to the database where people from that country
+
+class Country extends React.Component {
+  state = {
+    results: []
+  };
+
+  componentDidMount() {
+    // after component loads, get all products from db
+    axios.get("/api/Country/:name").then((response) => {
+      this.setState({
+        results: response.data
+      });
+    //   console.log(results)
+    });
+  }
+//cards, with youtube link music(favmusic) instead of image, name, age and country
+  render() {
+    return (
+        <div>
+        <h1>Country Name</h1>
+      <ul className="list-group">
+        {
+          this.state.results.map((User) => {
+            // create a route-able link for each product
+            return (
+              <li className="list-group-item" key={User.id}>
+                {User.name}
+                {" ... "}
+              </li>
+            );
+          })
+        }
+      </ul>
+      </div>
+    );
+  }
 }
 
 export default Country;
