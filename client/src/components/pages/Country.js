@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+// import "style.css";
 // import SignUp from "./SignUp";
 
 // connect json file for country name and flag

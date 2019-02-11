@@ -10,9 +10,9 @@ class SignUp extends Component {
       password:"",
       country:"",
       age:"",
-      favFood:"",
-      favSong:"",
-      favPlace:"",
+      faveFood:"",
+      faveSong:"",
+      favePlace:"",
       funFact:"",
       countriesVisited:"",
   };
@@ -43,9 +43,9 @@ class SignUp extends Component {
       password:"",
       country:"",
       age:"",
-      favFood:"",
-      favSong:"",
-      favPlace:"",
+      faveFood:"",
+      faveSong:"",
+      favePlace:"",
       funFact:"",
       countriesVisited:"",
     });
@@ -100,21 +100,21 @@ class SignUp extends Component {
             placeholder="age"
           />
           <input
-            value={this.state.favFood}
+            value={this.state.faveFood}
             name="favFood"
             onChange={this.handleInputChange}
             type="text"
             placeholder="favFood"
           />
           <input
-            value={this.state.favSong}
+            value={this.state.faveSong}
             name="favSong"
             onChange={this.handleInputChange}
             type="text"
             placeholder="favSong"
           />
           <input
-            value={this.state.favPlace}
+            value={this.state.favePlace}
             name="favPlace"
             onChange={this.handleInputChange}
             type="text"
