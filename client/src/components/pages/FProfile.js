@@ -10,9 +10,11 @@ class FProfile extends React.Component {
 
   componentDidMount() {
     // after component loads, get all products from db
-    axios.get("/api/worldview").then((response) => {
+    //this call needs to get the person's profile we asked about and the users followers below
+    // console.log(response.data.followers)
+    axios.get("/api/Users").then((response) => {
       this.setState({
-        results: response.data
+        results: response.data.followers
       });
     });
   }
