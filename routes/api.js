@@ -43,6 +43,17 @@ router.get("/api/User/:id", function(req, res) {
   });
 });
 
+// find one profile by id
+router.get("/fprofile/:id", function(req, res) {
+  User.findOne({
+    _id: req.params.id
+  })
+  .then((docs) => {
+    res.json(docs)
+  });
+});
+
+
 // // for updating profile
 // router.put("/api/User", function(req, res) {
 //   // as long as req.body matches what the model expects, this should insert into the database

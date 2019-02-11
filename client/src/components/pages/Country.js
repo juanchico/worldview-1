@@ -21,26 +21,37 @@ class Country extends React.Component {
     //   console.log(results)
     });
   }
+
+  
 //cards, with youtube link music(favmusic) instead of image, name, age and country
   render() {
     return (
-        <div>
-        <h1>Country Name</h1>
-      <ul className="list-group">
-        {
-          this.state.results.map((User) => {
-            // create a route-able link for each product
-            return (
-              <li className="list-group-item" key={User._id}>
-                <Link to={`/fprofile/${User._id}`}>Name: {User.name}</Link>
-                <br/>
-                <p>Age: {User.age} </p>   
-              </li>
-            );
-          })
-        }
-      </ul>
-      </div>
+      <div>
+      <div className="card">
+  <div className="content">
+    <h1>Country Name</h1>
+  <ul className="list-group">
+    {
+      this.state.results.map((User) => {
+        // create a route-able link for each product
+        return (
+          <li className="list-group-item" key={User._id}>
+          <div className="img-container">
+          <img alt={User.name} src={User.image} />
+          </div>
+            <Link to={`/fprofile/${User._id}`}>Name: {User.name}</Link>
+            <br/>
+            <p>Age: {User.age} </p>   
+          </li>
+        );
+      })
+    }
+  </ul>
+  </div>
+  </div>
+  </div>
+
+
     );
   }
 }
