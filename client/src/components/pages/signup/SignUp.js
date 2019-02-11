@@ -101,24 +101,24 @@ class SignUp extends Component {
           />
           <input
             value={this.state.faveFood}
-            name="favFood"
+            name="faveFood"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="favFood"
+            placeholder="faveFood"
           />
           <input
             value={this.state.faveSong}
-            name="favSong"
+            name="faveSong"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="favSong"
+            placeholder="faveSong"
           />
           <input
             value={this.state.favePlace}
-            name="favPlace"
+            name="favePlace"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="favPlace"
+            placeholder="favePlace"
           />
           <input
             value={this.state.funFact}
