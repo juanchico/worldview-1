@@ -48,6 +48,7 @@ class SignUp extends Component {
       favePlace:"",
       funFact:"",
       countriesVisited:"",
+      image: ""
     });
   } else {
     // mongoose validation failed
@@ -60,10 +61,12 @@ class SignUp extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
-        <p>
+        <h1>
           Hello {this.state.name} from {this.state.country}
-        </p>
+        </h1>
         <form className="form">
+        <br />
+        <h2>Tell us about yourself:</h2>
           <input
             value={this.state.name}
             name="name"
@@ -99,27 +102,35 @@ class SignUp extends Component {
             type="text"
             placeholder="age"
           />
+          <br />
+          <br />
+           <h2>Tell us about your country and culture:</h2>
+           <br />
+           <h3>What is your favorite regional food?</h3>
           <input
             value={this.state.faveFood}
-            name="favFood"
+            name="faveFood"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="favFood"
+            placeholder="faveFood"
           />
+          <h3>Share a link to your favorite regional music/song/artist?</h3>
           <input
             value={this.state.faveSong}
-            name="favSong"
+            name="faveSong"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="favSong"
+            placeholder="faveSong"
           />
+          <h3>What is your favorite local spot?</h3>
           <input
             value={this.state.favePlace}
-            name="favPlace"
+            name="favePlace"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="favPlace"
+            placeholder="favePlace"
           />
+          <h3>What is something most people don't know about your country?</h3>
           <input
             value={this.state.funFact}
             name="funFact"
@@ -127,6 +138,7 @@ class SignUp extends Component {
             type="text"
             placeholder="funFact"
           />
+           <h3>Have you visited other countries?</h3>
           <input
             value={this.state.countriesVisited}
             name="countriesVisited"
@@ -134,6 +146,16 @@ class SignUp extends Component {
             type="text"
             placeholder="countriesVisited"
           />
+          {/* <h3>From your eyes to ours. Share an image of your country. Simply copy a URL link.</h3>
+          <input
+            value={this.state.image}
+            name="image"
+            onChange={this.handleInputChange}
+            type="url"
+            placeholder="Image"
+          />
+          <br />
+          <br /> */}
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
