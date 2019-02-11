@@ -25,7 +25,7 @@ router.get("/api/Users", function(req, res) {
 
 
 // find users with specific country 
-router.get("/api/Country/:name", function(req, res) {
+router.get("/Country/:name", function(req, res) {
   // find all Users where quantity is greater than zero
   User.find({country: req.params.name}).populate("followers")
   .then((docs) => {
