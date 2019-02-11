@@ -146,7 +146,7 @@ class SignUp extends Component {
             type="text"
             placeholder="countriesVisited"
           />
-          {/* <h3>From your eyes to ours. Share an image of your country. Simply copy a URL link.</h3>
+          <h3>From your eyes to ours. Share an image of your country. Simply copy a URL link.</h3>
           <input
             value={this.state.image}
             name="image"
@@ -155,7 +155,7 @@ class SignUp extends Component {
             placeholder="Image"
           />
           <br />
-          <br /> */}
+          <br />
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>

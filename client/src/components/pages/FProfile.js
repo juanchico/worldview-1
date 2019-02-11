@@ -38,6 +38,7 @@ class FProfile extends React.Component {
       <div className="card">
       <div className="card-header">{this.state.results.name}</div>
       <div className="card-body">
+        <img alt={this.state.results.name} src={this.state.results.image} />
         <p>Name: {this.state.results.name}</p>
         <p>Age: {this.state.results.age}</p>
         <p>Country: {this.state.results.country}</p>

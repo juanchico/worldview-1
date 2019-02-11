@@ -43,6 +43,10 @@ var userSchema = new Schema({
         type: Array, 
         required: false
     },
+    image: {
+        type: String,
+        required: false
+    },
     followers: [  {
         type: Schema.Types.ObjectId,
         ref: "User"
