@@ -1,17 +1,20 @@
 import React from "react";
-import errormap from './emap.jpg';
+import errormap from './emap.png';
 
 function ErrorPage() {
   return (
     <div>
+      <center>
+        <br />
       <h1>PAGE NOT FOUND</h1>
-      <h1>
-        Everything else is Supercalifragilisticexpialidocious! 
-      </h1>
-      <img src={errormap} alt="" style={{width: "100%", height:"100%"}}/>
       <h2>
-        Now, try saying that backwards and take a deep breath, everything will be alright. Go back to the homepage and restart from there.
+        Everything else is Supercalifragilisticexpialidocious! 
       </h2>
+        <h3>
+        Try saying that backwards and take a deep breath...
+        </h3>
+      <img src={errormap} alt="" style={{width: "75%", height:"75%"}}/>
+      </center>
     </div>
   );
 }

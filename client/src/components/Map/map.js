@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+// import {Link} from "react-router-dom";
 // import NavBar from "../NavBar"
 import {
   ComposableMap,
@@ -12,15 +13,20 @@ const wrapperStyles = {
   maxWidth: 980,
   margin: "0 auto",
   backgroundColor: "#1a3dee"
-}
-
-// backgroundColor: "#1a3dee"
+} 
 
 class BasicMap extends Component {
 
 mapNameClick= (country)=> {
-console.log(country)
-// to get a name of a country from the json file it would by country.properties.name
+// console.log(country)
+
+window.location.assign(`/Country/${country.properties.name}`);
+
+// return( 
+//   <Link to={`/Country/${country.properties.name}`}></Link>
+// )  
+// return country.properties.name;
+// country.preventDefault();
 
 }
 
