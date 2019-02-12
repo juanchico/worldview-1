@@ -27,7 +27,6 @@ window.location.assign(`/Country/${country.properties.name}`);
 // )  
 // return country.properties.name;
 // country.preventDefault();
-
 }
 
 //flag shows up over the country on the map when hovered over
