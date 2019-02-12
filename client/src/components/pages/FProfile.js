@@ -5,7 +5,8 @@ import axios from "axios";
 
 class FProfile extends React.Component {
   state = {
-    results: {}
+    results: {},
+    followData: {}
   };
 
   componentDidMount() {
@@ -23,15 +24,14 @@ class FProfile extends React.Component {
    
   }
 
-  // follow = () => {
-  //   // make a put request to subtract one from quantity
-  //   axios.put(`/api/Users/${this.props.match.params.id}`).then((response) => {
-  //     // update state object with newest data
-  //     this.setState({
-  //       results: response.data
-  //     });
-  //   });
-  // };
+  follow = () => {
+    axios.put(`/api/Users/${this.props.match.params.id}`).then((response) => {
+      // update state object with newest data
+      this.setState({
+        followData: response.data
+      });
+    });
+  };
 
   render() {
     return (
