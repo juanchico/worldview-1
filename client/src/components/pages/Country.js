@@ -47,7 +47,7 @@ class Country extends React.Component {
               </div>
                 <Link to={`/fprofile/${User._id}`}>Name: {User.name}</Link>
                 <p>Age: {User.age} </p>
-                <p>Did you know?: {User.funFact} </p> 
+                <p>Fun Fact: {User.funFact} </p> 
               </li>
             );
           })

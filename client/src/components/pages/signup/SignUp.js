@@ -114,7 +114,7 @@ class SignUp extends Component {
             name="faveFood"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="faveFood"
+            placeholder="favorite food"
           />
           <h3>Share a link to your favorite regional music/song/artist?</h3>
           <input
@@ -122,7 +122,7 @@ class SignUp extends Component {
             name="faveSong"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="faveSong"
+            placeholder="favorite song"
           />
           <h3>What is your favorite local spot?</h3>
           <input
@@ -130,7 +130,7 @@ class SignUp extends Component {
             name="favePlace"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="favePlace"
+            placeholder="favorite place"
           />
           <h3>What is something most people don't know about your country?</h3>
           <input
@@ -138,27 +138,27 @@ class SignUp extends Component {
             name="funFact"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="funFact"
+            placeholder="fun fact"
           />
-           <h3>Have you visited other countries?</h3>
+           <h3>Which other countries have you visited?</h3>
           <input
             value={this.state.countriesVisited}
             name="countriesVisited"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="countriesVisited"
+            placeholder="countries visited"
           />
-          <h3>From your eyes to ours. Share an image of your country. Simply copy a URL link.</h3>
+          <h3>From your eyes to ours. Share a link to an image of your country you love.</h3>
           <input
             value={this.state.image}
             name="image"
             onChange={this.handleInputChange}
             type="url"
-            placeholder="Image"
+            placeholder="image"
           />
           <br />
           <br />
-          <button onClick={this.handleFormSubmit}>Submit</button>
+          <button className="btn btn-outline-primary btn-lg"  onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
       </div>
