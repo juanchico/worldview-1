@@ -36,20 +36,22 @@ class FProfile extends React.Component {
   render() {
     return (
       <div className="card">
-      <div className="card-header">{this.state.results.name}</div>
+      <div className="card-header"><h1><strong><center>{this.state.results.name}</center></strong></h1></div>
       <div className="card-body">
         <img alt={this.state.results.name} src={this.state.results.image} style={{width:"100%"}} />
-        <p>Name: {this.state.results.name}</p>
-        <p>Age: {this.state.results.age}</p>
-        <p>Country: {this.state.results.country}</p>
-        <p>Music: {this.state.results.faveSong}</p>
-        <p>Food: {this.state.results.faveFood}</p>
-        <p>Place: {this.state.results.favePlace}</p>
-        <p>Countries Visited: {this.state.results.countriesVisited}</p>
-        <p>Did you know?: {this.state.results.funFact}</p>
-
+        <br />
+        <br />
+        <h2><strong>Name:</strong> {this.state.results.name}</h2>
+        <h2><strong>Age:</strong> {this.state.results.age}</h2>
+        <h2><strong>Country:</strong> {this.state.results.country}</h2>
+        <h2><strong>Music:</strong> {this.state.results.faveSong}</h2>
+        <h2><strong>Food:</strong> {this.state.results.faveFood}</h2>
+        <h2><strong>Place:</strong> {this.state.results.favePlace}</h2>
+        <h2><strong>Countries Visited:</strong> {this.state.results.countriesVisited}</h2>
+        <h2><strong>Did you know?:</strong> {this.state.results.funFact}</h2>
+        <br />
         <button 
-          className="btn btn-outline-primary btn-sm" 
+          className="btn btn-outline-primary btn-lg" 
           onClick={this.follow}
           disabled={this.state.results.quantity <= 0}
         >

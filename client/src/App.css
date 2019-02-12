@@ -25,3 +25,40 @@ html,body { height:100%; }
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+h1 {
+  font-family: 'Lobster Two', cursive;
+  font-size: 82px;
+}
+
+h2, p{
+  font-family: 'Didact Gothic', sans-serif;
+  margin-top: 5px;
+}
+
+h2{
+  font-size: 250%;
+}
+
+h3{
+  font-family: 'Catamaran', sans-serif;
+}
+
+
+button {
+  margin-top: 5px;
+  padding: 2px 2px 2px 2px;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+::placeholder{
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+input{
+  width: 80%;
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+}
+
+/* border-color: #a1d6ff; */
