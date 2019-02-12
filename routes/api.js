@@ -54,27 +54,32 @@ router.get("/fprofile/:id", function(req, res) {
 });
 
 
-// // for updating profile
-// router.put("/api/User", function(req, res) {
-//   // as long as req.body matches what the model expects, this should insert into the database
-//   User.findByIdAndUpdate(req.body._id, )
-//   .then((result) => {
-//     res.json(result);
-//   })
-//   .catch((err) => {
-//     // if not, we can at least catch the errr
-//     res.json(err);
-//   });
-// });
+// to follow user 
+router.put("/api/User/:id/:following", function(req, res) {
+  // as long as req.body matches what the model expects, this should insert into the database
+  User.findByIdAndUpdate(
+    {_id: req.params.id},
+    {$push: { following: req.params.following}})
+  .then((result) => {
+    res.json(result);
+  })
+  .catch((err) => {
+    // if not, we can at least catch the errr
+    res.json(err);
+  });
+});
 
-// for finding one and displaying 
-// router.get("/api/Users", function(req, res) {
-//   // find all Users where quantity is greater than zero
-//   User.find({}).populate("followers")
-//   .then((docs) => {
-//     res.json(docs);
-//   });
-// });
+// for finding all docs in following array 
+router.get("/Feed/:id", function(req, res) {
+  User.find({
+    _id: req.params.id
+  }).populate("following")
+  .then((docs) => {
+    res.json(docs);
+  });
+});
+
+
 
 
 

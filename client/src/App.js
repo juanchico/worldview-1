@@ -28,7 +28,7 @@ class App extends Component {
         <Route exact path="/" component={BasicMap} />
         <Route exact path="/map" component={BasicMap} />
         <Route exact path="/country/:name" component={Country} />
-        <Route exact path="/feed" component={Feed} />
+        <Route exact path="/feed/:_id" component={Feed} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/fprofile/:_id" component={FProfile} />
         <Route exact path="/signup" component={SignUp} />
