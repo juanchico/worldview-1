@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+
+
 // import logo from './logo.jpeg'; // with import
 
 //box shadow boxShadow: "4px 8px #b2b6cb",
-function NavBar(){
+function NavBar(props){
 return(
 <ul className="nav nav tabs" style={{backgroundColor: "white", padding: "10px", width: "100%"}}>
 <li className="nav-item">
@@ -28,7 +31,18 @@ return(
 </li>
 <li className="nav-item">
     <Link to="/signup" className={window.location.pathname === "/signup" ? "nav-link active": "nav-link"}> 
-    Sign Up
+    {props.navSignin}
+    </Link> 
+</li>
+<li className="nav-item">
+    <Link to="/login" className={window.location.pathname === "/login" ? "nav-link active": "nav-link"}> 
+{props.navLogin}
+    </Link> 
+</li>
+
+<li className="nav-item">
+    <Link to="/login"  onClick={props.handleLogOut}> 
+         {props.navOut}
     </Link> 
 </li>
 </ul>

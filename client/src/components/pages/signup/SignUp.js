@@ -49,6 +49,8 @@ class SignUp extends Component {
       funFact:"",
       countriesVisited:"",
     });
+    this.props.setLogin();
+    this.props.history.push("/profile");
   } else {
     // mongoose validation failed
           alert("Error. Try Again.");
