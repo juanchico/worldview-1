@@ -17,7 +17,7 @@ return(
     </Link> 
 </li>
 <li className="nav-item">
-    <Link to="/feed" className={window.location.pathname === "/feed" ? "nav-link active": "nav-link"}>
+    <Link to="/Feed" className={window.location.pathname === "/Feed" ? "nav-link active": "nav-link"}>
     <h3>Feed</h3>
     </Link>
 </li>

@@ -23,29 +23,35 @@ class App extends Component {
     loaded: false,
     authenticated: false,
     loggedOut:false
+    
   };
 
   componentDidMount() {
     // check if user has already logged in successfully
     axios.get("/auth").then((res) => {
+      
       this.setState({
         loaded: true,
-        authenticated: res.data
+        authenticated: res.data,
+        
       });
+      console.log(res);
     });
   }
   handleLogOut = ()=>{
-    console.log(this);
+    // console.log(this);
     axios.get("/logout").then((res)=>{
       this.setState({
         authenticated: false
       });
     });
   }
-  setLogin = () => {
-    console.log(this) ;   // login component triggered authentication = true
+  setLogin = (current) => {
+   // console.log(this) ; 
+     // login component triggered authentication = true
+
     this.setState({
-      authenticated: true
+      authenticated: current
     });
   };
   render() {
@@ -70,9 +76,9 @@ class App extends Component {
         <Route exact path="/" component={BasicMap} />
         <Route exact path="/map" component={BasicMap} />
         <Route exact path="/country/:name" component={Country} />
-        <Route exact path="/feed/:_id" component={Feed} />
+        <Route exact path="/Feed" render={(props) => <Feed {...props} current={this.state.authenticated}  setLogin={this.setLogin}/>} />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/fprofile/:_id" component={FProfile} />
+        <Route exact path="/fprofile/:_id" render={(props) => <FProfile {...props} current={this.state.authenticated}  setLogin={this.setLogin}/>} />
         <Route exact path="/signup" component={SignUp} />
         <Route path="/*"  component={ErrorPage} /> 
         <div>

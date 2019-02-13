@@ -7,6 +7,7 @@ class FProfile extends React.Component {
   state = {
     results: {},
     followData: {}
+  
   };
 
   componentDidMount() {
@@ -23,9 +24,9 @@ class FProfile extends React.Component {
     }).then(response => console.log(response)).catch(err => console.log(err)) 
    
   }
-
+  
   follow = () => {
-    axios.put(`/api/Users/${this.props.match.params.id}`).then((response) => {
+    axios.put(`/api/User/${this.props.current._id}/${this.props.match.params._id}`).then((response) => {
       // update state object with newest data
       this.setState({
         followData: response.data
@@ -37,6 +38,13 @@ class FProfile extends React.Component {
     return (
       <div className="card">
       <div className="card-header"><h1><strong><center>{this.state.results.name}</center></strong></h1></div>
+      <button 
+          className="btn btn-outline-primary btn-lg" 
+          onClick={this.follow}
+          disabled={this.state.results.quantity <= 0}
+        >
+          Follow
+        </button>
       <div className="card-body">
         <img alt={this.state.results.name} src={this.state.results.image} style={{width:"100%"}} />
         <br />
@@ -50,13 +58,7 @@ class FProfile extends React.Component {
         <h2><strong>Countries Visited:</strong> {this.state.results.countriesVisited}</h2>
         <h2><strong>Did you know?:</strong> {this.state.results.funFact}</h2>
         <br />
-        <button 
-          className="btn btn-outline-primary btn-lg" 
-          onClick={this.follow}
-          disabled={this.state.results.quantity <= 0}
-        >
-          Follow
-        </button>
+       
       </div>
     </div>
     );
