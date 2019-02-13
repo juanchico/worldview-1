@@ -16,8 +16,8 @@ import ErrorPage from "./components/pages/Error";
 class App extends Component {
 
   divStyle = {
-    backgroundColor: "#1a3dee", 
-    height: "100%"
+    backgroundColor: "#00000", 
+    height: "200%"
   }
   state = {
     loaded: false,
