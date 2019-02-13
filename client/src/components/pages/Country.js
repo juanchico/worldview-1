@@ -29,22 +29,24 @@ class Country extends React.Component {
   render() {
     return (
         <div>
-           <h1>Country Name</h1>
-        <div className="card" style={{background: "#fff",
-          borderRadius: "2px", height: "325px", margin: "1rem",
-          position: "relative", width: "325px", boxShadow: "0 3px 6px #999, 0 3px 6px #999", textAlign: "left"}}>
-        <div className="content" style={{paddingLeft: "1rem",
-        paddingRight: "1rem", fontSize: "15px"}}>
-      <ul className="list-group" style={{listStyleType: "none"}}>
+           <center><h1>{this.props.match.params.name}</h1></center>
+        <div className="content" 
+        style={{paddingLeft: "1rem",
+        paddingRight: "1rem", fontSize: "15px",
+        height: "350px",
+        width: "325px",
+        position: "relative"}}>
+      <ul className="list-group" style={{listStyleType: "none", position: "relative", display:"inline", float: "left"}}>
         {
           this.state.results.map((User) => {
             // create a route-able link for each product
             return (
-              <li className="list-group-item" key={User._id} style={{ marginTop: "18px"}}>
+              <li className="list-group-item" key={User._id} style={{ marginTop: "18px", boxShadow: "0 3px 6px #999, 0 3px 6px #999",position: "relative", display:"inline", float: "left"}}>
               <div className="img-container" style={{ height: "60%",
-              overflow: "hidden",  textAlign: "center", background:"#6CADDC",}}>
+              overflow: "hidden",  textAlign: "center", background:"#6CADDC", boxShadow: "0 3px 6px #999, 0 3px 6px #999"}}>
               <img alt={User.name} src={User.image} style={{width: "100%"}}/>
               </div>
+              <br />
                 <Link to={`/fprofile/${User._id}`}>Name: {User.name}</Link>
                 <p>Age: {User.age} </p>
                 <p>Fun Fact: {User.funFact} </p> 
@@ -55,9 +57,13 @@ class Country extends React.Component {
       </ul>
       </div>
       </div>
-      </div>
     );
   }
 }
 
 export default Country;
+
+
+/* <div className="card" style={{background: "#fff",
+          borderRadius: "2px", height: "325px", margin: "1rem",
+          position: "relative", width: "325px", boxShadow: "0 3px 6px #999, 0 3px 6px #999", textAlign: "left"}}></div> */
