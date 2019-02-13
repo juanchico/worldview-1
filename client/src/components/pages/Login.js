@@ -24,11 +24,11 @@ class Login extends Component {
         payload = {email, password};
         // send credentials to back-end to check account
     axios.post("/login", payload).then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
       if (res.data) {
         // if successful, set auth value on parent
         this.setState({name:res.data.name});
-       this.props.setLogin();
+       this.props.setLogin(res.data);
         this.props.history.push("/");
       }
       else {

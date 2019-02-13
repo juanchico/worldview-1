@@ -50,7 +50,7 @@ class SignUp extends Component {
       countriesVisited:"",
       image: ""
     });
-    this.props.setLogin();
+    this.props.setLogin(response.data);
     this.props.history.push("/profile");
   } else {
     // mongoose validation failed

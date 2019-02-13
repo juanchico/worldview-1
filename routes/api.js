@@ -13,7 +13,7 @@ router.post("/api/User", function(req, res) {
 
       res.cookie("token", token, { expires: new Date(Date.now() + 999999999) });
       req.session.user = user;
-      console.log(req.session)
+      
      
       res.json(req.session);
     }
@@ -91,6 +91,7 @@ router.get("/Feed/:id", function(req, res) {
 var loggedIn = false;
 router.get("/auth", function (req, res) {
   // send back "session" status
+  console.log(req.session.user);
   res.json(req.session.user);
 });
 
@@ -98,15 +99,22 @@ router.get("/profile", function (req, res) {
   // only users with set session can see this route
   if (req.session.user) {
     // console.log("hit");
-    let { email, name } = req.session.user,
-      payload = { email, name };
-    res.json(payload);
+     
+      
+    res.json(req.session.user);
   }
   else {
     res.redirect("/");
   }
 });
+router.get("/current", function (req, res) {
+  // only users with set session can see this route
+  if (req.session.user) {
+     
+    res.json(req.session.user);
+  }
 
+});
 router.get("/logout", function (req, res) {
   console.log(req.session);// clear cookie and session
   res.clearCookie("token");
@@ -116,10 +124,9 @@ router.get("/logout", function (req, res) {
 });
 
 router.post("/login", function (req, res) {
-  let { email, password } = req.body,
-      payload = { email, password };
+ 
   // look for user that matches the posted email and password
-  User.findOne(payload).then((user) => {
+  User.findOne(req.body).then((user) => {
     //console.log(user);
     if (user) {
       var token = "t" + Math.random();
@@ -127,10 +134,8 @@ router.post("/login", function (req, res) {
 
       res.cookie("token", token, { expires: new Date(Date.now() + 999999999) });
       req.session.user = user;
-      console.log(req.session)
-      let { email, name } = user,
-      payload = { email, name };
-      res.json(payload);
+     
+      res.json(req.session.user);
     }
     else {
       res.send(null);
