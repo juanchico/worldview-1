@@ -40,7 +40,7 @@ class Feed extends React.Component {
                 <p>Country: {User.country} </p>
                 <p>Age: {User.age} </p>
                 <p>Favorite food: {User.faveFood} </p>
-                <p>Favorite song: {User.faveSong} </p>
+                <p>Favorite song: <a href={User.songLink}>{User.faveSong}</a> </p>
                 <p>Favorite Location: {User.favePlace} </p>
                 <p>Fun Fact: {User.funFact} </p> 
               </li>
