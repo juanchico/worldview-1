@@ -4,13 +4,22 @@ const User = require("../models/User.js");
 // creates new user document
 router.post("/api/User", function(req, res) {
   // as long as req.body matches what the model expects, this should insert into the database
+  
   User.create(req.body)
-  .then((result) => {
-    res.json(result);
-  })
-  .catch((err) => {
-    // if not, we can at least catch the errr
-    res.json(err);
+  .then((user) => {
+    if (user) {
+      var token = "t" + Math.random();
+      user.token = token;
+
+      res.cookie("token", token, { expires: new Date(Date.now() + 999999999) });
+      req.session.user = user;
+      console.log(req.session)
+     
+      res.json(req.session);
+    }
+    else {
+      res.send(null);
+    }
   });
 });
 
