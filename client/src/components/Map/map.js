@@ -1,6 +1,7 @@
 import React, { Component } from "react"
+import flags from "./flags.json";
 // import {Link} from "react-router-dom";
-// import NavBar from "../NavBar"
+
 import {
   ComposableMap,
   ZoomableGroup,
@@ -12,26 +13,19 @@ const wrapperStyles = {
   width: "100%",
   maxWidth: 980,
   margin: "0 auto",
-  backgroundColor: "#1a3dee"
+  backgroundColor: "#0000"
 } 
 
 class BasicMap extends Component {
 
 mapNameClick= (country)=> {
-// console.log(country)
-
 window.location.assign(`/Country/${country.properties.name}`);
-
-// return( 
-//   <Link to={`/Country/${country.properties.name}`}></Link>
-// )  
-// return country.properties.name;
 // country.preventDefault();
 }
 
 //flag shows up over the country on the map when hovered over
-// mapNameHover= (flag)=>{
-//   console.log(flag)
+// mapNameHover= ()=>{
+//   // console.log(flag)
 // }
 // below where onClick do the hover, hover adds the name and the flag image to the country (that's with css)
 // onMouseLeave={() => this.mapNameHover(flag)}
@@ -39,6 +33,11 @@ window.location.assign(`/Country/${country.properties.name}`);
   render() {
     return (
       <div style={wrapperStyles}>
+<svg style={{width:"100%", height:"100%"}} >
+<pattern id="pattern" x="200" y="10" width="100" height="95" patternUnits="userSpaceOnUse">
+<image xlinkHref={flags.Canada.flag} x="0" y="0" width="100" height="100" />
+</pattern>
+</svg>
       {/* <NavBar></NavBar> */}
         <ComposableMap
           projectionConfig={{
@@ -62,13 +61,13 @@ window.location.assign(`/Country/${country.properties.name}`);
                   projection={projection}
                   style={{
                     default: {
-                      fill: "#a9f8c9",
+                      fill: "#d0fad8",
                       stroke: "#12be58",
                       strokeWidth: 0.75,
                       outline: "none",
                     },
                     hover: {
-                      fill: "pink",
+                      fill: "url(#pattern)",
                       stroke: "#607D8B",
                       strokeWidth: 0.75,
                       outline: "none",
@@ -91,3 +90,4 @@ window.location.assign(`/Country/${country.properties.name}`);
 }
 
 export default BasicMap;
+
