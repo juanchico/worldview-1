@@ -38,6 +38,11 @@ window.location.assign(`/Country/${country.properties.name}`);
   render() {
     return (
       <div style={wrapperStyles}>
+<svg style={{width:"100%", height:"100%"}} >
+<pattern id="pattern" x="200" y="10" width="100" height="95" patternUnits="userSpaceOnUse">
+<image xlinkHref={flags.Canada.flag} x="0" y="0" width="100" height="100" />
+</pattern>
+</svg>
       {/* <NavBar></NavBar> */}
         <ComposableMap
           projectionConfig={{
@@ -67,7 +72,7 @@ window.location.assign(`/Country/${country.properties.name}`);
                       outline: "none",
                     },
                     hover: {
-                      backgroundImage: `url(${flags.Canada.flag})`,
+                      fill: "url(#pattern)",
                       stroke: "#607D8B",
                       strokeWidth: 0.75,
                       outline: "none",
