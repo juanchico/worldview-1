@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import flags from "./flags.json";
-import spin from "./map.css"
+import "./map.css"
 // import {Link} from "react-router-dom";
 
 import {
@@ -43,32 +43,19 @@ mapNameClick= (country)=> {
 ))}
 </svg>
       {/* <NavBar></NavBar> */}
-        <ComposableMap
+        <ComposableMap 
+        className= "mapspin"
           projectionConfig={{
             scale: 205,
             rotation: [-11,0,0],
           }}
         //   width={980}
         //   height={551}
-          style={{
-            position: "absolute",
-            top: "200px",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            width: "900px",
-            height: "900px",
-            margin: "auto", borderRadius: "50%",
-            backgroundSize: "cover",
-            backgroundColor: "#160c55",
-            boxShadow: "-20px -20px 50px #000 inset, 0 0 20px 2px #000",
-            animation: "spin 30s linear alternate infinite",
-          }}
           >
           <ZoomableGroup center={[0,20]} disablePanning>
             <Geographies geography="/static/world-50m.json">
               {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
-                <Geography onClick={()=> this.mapNameClick(geography)}
+                <Geography className="geography" onClick={()=> this.mapNameClick(geography)}
                   key={i}
                   geography={geography}
                   projection={projection}

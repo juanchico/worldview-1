@@ -1,19 +1,24 @@
-.composablemap{
-    position: "absolute";
-    top: "200px";
+.mapspin{
+    position: absolute;
+    top: 200px;
     bottom: 0;
     left: 0;
     right: 0;
-    width: "900px";
-    height: "900px";
-    margin: "auto";
-    border-radius: "50%";
-    background-size: "cover";
-    background-color: "#160c55";
-    box-shadow: "-20px -20px 50px #000 inset, 0 0 20px 2px #000";
-    animation: "spin 30s linear alternate infinite";
+    width: 900px;
+    height: 900px;
+    margin: auto;
+    border-radius: 50%;
+    background-size: cover;
+    background-color: #160c55;
+    box-shadow: -20px -20px 50px #000 inset, 0 0 20px 2px #000;
+}
+
+.geography{
+    animation: spin 30s linear alternate infinite;
 }
 
 @keyframes spin{
     100%{background-position: 100%;}
 }
+
+/* !important  add this to end of property to override previous styling if needed*/
