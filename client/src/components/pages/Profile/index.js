@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./style.css";
 
 class Profile extends Component {
   state = {
@@ -8,14 +9,11 @@ class Profile extends Component {
   componentDidMount() {
     // check if user has already logged in successfully
     axios.get("/profile").then((res) => {
-     // console.log(res);
       this.setState({
         results: res.data
       });
     });
   }
- 
-  
 
   render() {
     return (
@@ -28,10 +26,9 @@ class Profile extends Component {
         <h2><strong>Name:</strong> {this.state.results.name}</h2>
         <h2><strong>Age:</strong> {this.state.results.age}</h2>
         <h2><strong>Country:</strong> {this.state.results.country}</h2>
-        <h2><strong>Music:</strong> {this.state.results.faveSong}</h2>
+        <h2><strong>Music:</strong> <a target="_blank" rel="noopener noreferrer" href={this.state.results.songLink}>{this.state.results.faveSong}</a> </h2>
         <h2><strong>Food:</strong> {this.state.results.faveFood}</h2>
         <h2><strong>Place:</strong> {this.state.results.favePlace}</h2>
-        <h2><strong>Countries Visited:</strong> {this.state.results.countriesVisited}</h2>
         <h2><strong>Did you know?:</strong> {this.state.results.funFact}</h2>
       </div>
     </div>

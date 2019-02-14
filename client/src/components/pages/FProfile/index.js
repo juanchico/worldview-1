@@ -1,7 +1,6 @@
 import React from "react";
-// import SignUp fromimport React from "react";
-// import {Link} from "react-router-dom";
 import axios from "axios";
+import "./style.css";
 
 class FProfile extends React.Component {
   state = {
@@ -12,11 +11,7 @@ class FProfile extends React.Component {
 
   componentDidMount() {
     // after component loads, get all products from db
-    //this call needs to get the person's profile we asked about and the users followers below
-    // console.log(response.data.followers)
-    // axios.get(`/fprofile`).then(response => console.log(response.data))
     axios.get(`/fprofile/${this.props.match.params._id}`).then((response) => {
-      console.log(response);
       this.setState({
         results: response.data
       });
@@ -37,7 +32,7 @@ class FProfile extends React.Component {
   render() {
     return (
       <div className="card">
-      <div className="card-header"><h1><strong><center>{this.state.results.name}</center></strong></h1></div>
+      <div className="card-header" style={{backgroundColor:"rgb(237, 252, 254)"}}><h1><strong><center>{this.state.results.name}</center></strong></h1></div>
       <button 
           className="btn btn-outline-primary btn-lg" 
           onClick={this.follow}
@@ -52,10 +47,9 @@ class FProfile extends React.Component {
         <h2><strong>Name:</strong> {this.state.results.name}</h2>
         <h2><strong>Age:</strong> {this.state.results.age}</h2>
         <h2><strong>Country:</strong> {this.state.results.country}</h2>
-        <h2><strong>Music:</strong> {this.state.results.faveSong}</h2>
+        <h2><strong>Music:</strong> <a target="_blank" rel="noopener noreferrer" href={this.state.results.songLink}>{this.state.results.faveSong}</a></h2>
         <h2><strong>Food:</strong> {this.state.results.faveFood}</h2>
         <h2><strong>Place:</strong> {this.state.results.favePlace}</h2>
-        <h2><strong>Countries Visited:</strong> {this.state.results.countriesVisited}</h2>
         <h2><strong>Did you know?:</strong> {this.state.results.funFact}</h2>
         <br />
        

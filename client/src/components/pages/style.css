@@ -39,3 +39,7 @@
   .card > .remove:hover {
     color: #d50000;
   }
+
+  .card-header{
+    background-color:rgb(237, 252, 254);
+  }

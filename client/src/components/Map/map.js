@@ -1,6 +1,8 @@
 import React, { Component } from "react"
+import flags from "./flags.json";
+import "./map.css"
 // import {Link} from "react-router-dom";
-// import NavBar from "../NavBar"
+
 import {
   ComposableMap,
   ZoomableGroup,
@@ -12,26 +14,19 @@ const wrapperStyles = {
   width: "100%",
   maxWidth: 980,
   margin: "0 auto",
-  backgroundColor: "#1a3dee"
+  backgroundColor: "#0000"
 } 
 
 class BasicMap extends Component {
 
 mapNameClick= (country)=> {
-// console.log(country)
-
 window.location.assign(`/Country/${country.properties.name}`);
-
-// return( 
-//   <Link to={`/Country/${country.properties.name}`}></Link>
-// )  
-// return country.properties.name;
 // country.preventDefault();
 }
 
 //flag shows up over the country on the map when hovered over
-// mapNameHover= (flag)=>{
-//   console.log(flag)
+// mapNameHover= ()=>{
+//   // console.log(flag)
 // }
 // below where onClick do the hover, hover adds the name and the flag image to the country (that's with css)
 // onMouseLeave={() => this.mapNameHover(flag)}
@@ -39,36 +34,39 @@ window.location.assign(`/Country/${country.properties.name}`);
   render() {
     return (
       <div style={wrapperStyles}>
+<svg style={{width:"100%", height:"100%"}} >
+{Object.keys(flags).map((keyName, i) => (
+<pattern id={"pattern_" + keyName.replace(/the /g,'').replace(/ /g,'')} x="100" y="5" width="95" height="67" patternUnits="userSpaceOnUse" key={i}>
+<image xlinkHref={flags[keyName].flag} x="0" y="0" width="100" height="100" />
+</pattern>
+))}
+</svg>
       {/* <NavBar></NavBar> */}
-        <ComposableMap
+        <ComposableMap 
+        className= "mapspin"
           projectionConfig={{
             scale: 205,
             rotation: [-11,0,0],
           }}
         //   width={980}
         //   height={551}
-          style={{
-            width: "100%",
-            height: "auto",
-            marginLeft: "0px"
-          }}
           >
           <ZoomableGroup center={[0,20]} disablePanning>
             <Geographies geography="/static/world-50m.json">
               {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
-                <Geography onClick={()=> this.mapNameClick(geography)}
+                <Geography className="geography" onClick={()=> this.mapNameClick(geography)}
                   key={i}
                   geography={geography}
                   projection={projection}
                   style={{
                     default: {
-                      fill: "#a9f8c9",
+                      fill: "#d0fad8",
                       stroke: "#12be58",
                       strokeWidth: 0.75,
                       outline: "none",
                     },
                     hover: {
-                      fill: "pink",
+                      fill: "url(#pattern_" + geography.properties.name.replace(/the /g,'').replace(/ /g,'') + ")",
                       stroke: "#607D8B",
                       strokeWidth: 0.75,
                       outline: "none",
@@ -91,3 +89,4 @@ window.location.assign(`/Country/${country.properties.name}`);
 }
 
 export default BasicMap;
+

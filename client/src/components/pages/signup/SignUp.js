@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import "./style.css";
+import "./style.css";
 
 class SignUp extends Component {
   // Setting the component's initial state
@@ -12,9 +12,9 @@ class SignUp extends Component {
       age:"",
       faveFood:"",
       faveSong:"",
+      songLink:"",
       favePlace:"",
       funFact:"",
-      countriesVisited:"",
   };
 
   handleInputChange = event => {
@@ -45,9 +45,9 @@ class SignUp extends Component {
       age:"",
       faveFood:"",
       faveSong:"",
+      songLink:"",
       favePlace:"",
       funFact:"",
-      countriesVisited:"",
       image: ""
     });
     this.props.setLogin(response.data);
@@ -118,13 +118,21 @@ class SignUp extends Component {
             type="text"
             placeholder="favorite food"
           />
-          <h3>Share a link to your favorite regional music/song/artist?</h3>
+          <h3>What is your favorite song from the region?</h3>
           <input
             value={this.state.faveSong}
             name="faveSong"
             onChange={this.handleInputChange}
             type="text"
             placeholder="favorite song"
+          />
+          <h3>Share a link to the song!</h3>
+          <input
+            value={this.state.songLink}
+            name="songLink"
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="Link to your song"
           />
           <h3>What is your favorite local spot?</h3>
           <input
@@ -141,14 +149,6 @@ class SignUp extends Component {
             onChange={this.handleInputChange}
             type="text"
             placeholder="fun fact"
-          />
-           <h3>Which other countries have you visited?</h3>
-          <input
-            value={this.state.countriesVisited}
-            name="countriesVisited"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="countries visited"
           />
           <h3>From your eyes to ours. Share a link to an image of your country you love.</h3>
           <input

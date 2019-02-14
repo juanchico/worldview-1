@@ -1,0 +1,11 @@
+.nav-item{
+    margin-left: 100px;
+} 
+.navbar{
+    margin-left: -50px;
+    padding: 11px;
+}
+.bg-dark {
+    background-color: #22aade!important;
+}
+

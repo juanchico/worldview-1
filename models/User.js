@@ -31,16 +31,16 @@ var userSchema = new Schema({
         type: String, 
         required: false
     },
+    songLink: {
+        type: String, 
+        required: false
+    },
     favePlace: {
         type: String, 
         required: false
     },
     funFact: {
         type: String, 
-        required: false
-    },
-    countriesVisited: {
-        type: Array, 
         required: false
     },
     image: {

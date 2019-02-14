@@ -25,7 +25,6 @@ router.post("/api/User", function(req, res) {
 
 // populates followers for documents
 router.get("/api/Users", function(req, res) {
-  // find all Users where quantity is greater than zero
   User.find({}).populate("followers")
   .then((docs) => {
     res.json(docs);
@@ -35,7 +34,6 @@ router.get("/api/Users", function(req, res) {
 
 // find users with specific country 
 router.get("/Country/:name", function(req, res) {
-  // find all Users where quantity is greater than zero
   User.find({country: req.params.name}).populate("followers")
   .then((docs) => {
     res.json(docs);
@@ -44,7 +42,6 @@ router.get("/Country/:name", function(req, res) {
 
 // find user with id
 router.get("/api/User/:id", function(req, res) {
-  // find all Users where quantity is greater than zero
   console.log("working");
   User.findOne({_id: req.params.id}).populate("followers")
   .then((docs) => {
@@ -98,7 +95,6 @@ router.get("/auth", function (req, res) {
 router.get("/profile", function (req, res) {
   // only users with set session can see this route
   if (req.session.user) {
-    // console.log("hit");
      
       
     res.json(req.session.user);
@@ -127,7 +123,6 @@ router.post("/login", function (req, res) {
  
   // look for user that matches the posted email and password
   User.findOne(req.body).then((user) => {
-    //console.log(user);
     if (user) {
       var token = "t" + Math.random();
       user.token = token;

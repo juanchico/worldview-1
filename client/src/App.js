@@ -3,21 +3,20 @@ import "./App.css";
 import BasicMap from "./components/Map/map.js"
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
-import NavBar from "./components/NavBar";
-import Feed from "./components/pages/Feed";
-import Country from "./components/pages/Country";
-import Profile from "./components/pages/Profile";
-import FProfile from "./components/pages/FProfile";
+import NavBar from "./components/NavBar/index";
+import Feed from "./components/pages/Feed/index";
+import Country from "./components/pages/Country/index";
+import Profile from "./components/pages/Profile/index";
+import FProfile from "./components/pages/FProfile/index";
 import SignUp from "./components/pages/signup/SignUp";
-import Login from "./components/pages/Login";
-// import Search from "./components/pages/Search";
-import ErrorPage from "./components/pages/Error";
+import Login from "./components/pages/Login/index";
+import ErrorPage from "./components/pages/Error/index";
 
 class App extends Component {
 
   divStyle = {
-    backgroundColor: "#1a3dee", 
-    height: "100%"
+    backgroundColor: "#00000", 
+    height: "175%"
   }
   state = {
     loaded: false,
@@ -35,11 +34,9 @@ class App extends Component {
         authenticated: res.data,
         
       });
-      console.log(res);
     });
   }
   handleLogOut = ()=>{
-    // console.log(this);
     axios.get("/logout").then((res)=>{
       this.setState({
         authenticated: false
@@ -47,9 +44,6 @@ class App extends Component {
     });
   }
   setLogin = (current) => {
-   // console.log(this) ; 
-     // login component triggered authentication = true
-
     this.setState({
       authenticated: current
     });
@@ -63,10 +57,13 @@ class App extends Component {
       <div className="container">
         <Router>
           <div>
-            <NavBar 
+          <NavBar 
             navLogin={!this.state.authenticated ?"login":null}
             navSignin={!this.state.authenticated ?"SignUp":null}
             navOut = {!this.state.authenticated? null:"Log Out"}
+            navP = {!this.state.authenticated? null:"Profile"}
+            navF = {!this.state.authenticated? null:"Friends"}
+            navM = {!this.state.authenticated? null:"Map"}
             handleLogOut={this.handleLogOut}
             />
             <Switch>
