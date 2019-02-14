@@ -6,7 +6,7 @@ import axios from "axios";
 import NavBar from "./components/NavBar/index";
 import Feed from "./components/pages/Feed";
 import Country from "./components/pages/Country/index";
-import Profile from "./components/pages/Profile";
+import Profile from "./components/pages/Profile/index";
 import FProfile from "./components/pages/FProfile";
 import SignUp from "./components/pages/signup/SignUp";
 import Login from "./components/pages/Login/index";
