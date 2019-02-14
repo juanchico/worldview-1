@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import flags from "./flags.json";
+import "./map.css"
 // import {Link} from "react-router-dom";
 
 import {
@@ -19,8 +20,10 @@ const wrapperStyles = {
 class BasicMap extends Component {
 
 mapNameClick= (country)=> {
+  // console.log(country);
 window.location.assign(`/Country/${country.properties.name}`);
 // country.preventDefault();
+// it WORKS!!!!
 }
 
 //flag shows up over the country on the map when hovered over
@@ -34,28 +37,26 @@ window.location.assign(`/Country/${country.properties.name}`);
     return (
       <div style={wrapperStyles}>
 <svg style={{width:"100%", height:"100%"}} >
-<pattern id="pattern" x="200" y="10" width="100" height="95" patternUnits="userSpaceOnUse">
-<image xlinkHref={flags.Canada.flag} x="0" y="0" width="100" height="100" />
+{Object.keys(flags).map((keyName, i) => (
+<pattern id={"pattern_" + keyName.replace(/the /g,'').replace(/ /g,'')} x="100" y="5" width="95" height="67" patternUnits="userSpaceOnUse" key={i}>
+<image xlinkHref={flags[keyName].flag} x="0" y="0" width="100" height="100" />
 </pattern>
+))}
 </svg>
       {/* <NavBar></NavBar> */}
-        <ComposableMap
+        <ComposableMap 
+        className= "mapspin"
           projectionConfig={{
             scale: 205,
             rotation: [-11,0,0],
           }}
         //   width={980}
         //   height={551}
-          style={{
-            width: "100%",
-            height: "auto",
-            marginLeft: "0px"
-          }}
           >
           <ZoomableGroup center={[0,20]} disablePanning>
             <Geographies geography="/static/world-50m.json">
               {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
-                <Geography onClick={()=> this.mapNameClick(geography)}
+                <Geography className="geography" onClick={()=> this.mapNameClick(geography)}
                   key={i}
                   geography={geography}
                   projection={projection}
@@ -67,7 +68,7 @@ window.location.assign(`/Country/${country.properties.name}`);
                       outline: "none",
                     },
                     hover: {
-                      fill: "url(#pattern)",
+                      fill: "url(#pattern_" + geography.properties.name.replace(/the /g,'').replace(/ /g,'') + ")",
                       stroke: "#607D8B",
                       strokeWidth: 0.75,
                       outline: "none",
