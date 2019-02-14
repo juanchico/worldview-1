@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
-// import "style.css";
+import "./style.css";
 
 class Country extends React.Component {
   state = {

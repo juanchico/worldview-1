@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import axios from "axios";
 import NavBar from "./components/NavBar/index";
 import Feed from "./components/pages/Feed";
-import Country from "./components/pages/Country";
+import Country from "./components/pages/Country/index";
 import Profile from "./components/pages/Profile";
 import FProfile from "./components/pages/FProfile";
 import SignUp from "./components/pages/signup/SignUp";
