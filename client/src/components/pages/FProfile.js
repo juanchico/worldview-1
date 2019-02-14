@@ -2,7 +2,6 @@ import React from "react";
 // import SignUp fromimport React from "react";
 // import {Link} from "react-router-dom";
 import axios from "axios";
-
 class FProfile extends React.Component {
   state = {
     results: {},
@@ -37,7 +36,7 @@ class FProfile extends React.Component {
   render() {
     return (
       <div className="card">
-      <div className="card-header"><h1><strong><center>{this.state.results.name}</center></strong></h1></div>
+      <div className="card-header" style={{backgroundColor:"rgb(237, 252, 254)"}}><h1><strong><center>{this.state.results.name}</center></strong></h1></div>
       <button 
           className="btn btn-outline-primary btn-lg" 
           onClick={this.follow}
