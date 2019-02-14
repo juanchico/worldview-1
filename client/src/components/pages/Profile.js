@@ -28,7 +28,7 @@ class Profile extends Component {
         <h2><strong>Name:</strong> {this.state.results.name}</h2>
         <h2><strong>Age:</strong> {this.state.results.age}</h2>
         <h2><strong>Country:</strong> {this.state.results.country}</h2>
-        <h2><strong>Music:</strong> <a target="_blank" href={this.state.results.songLink}>{this.state.results.faveSong}</a> </h2>
+        <h2><strong>Music:</strong> <a target="_blank" rel="noopener noreferrer" href={this.state.results.songLink}>{this.state.results.faveSong}</a> </h2>
         <h2><strong>Food:</strong> {this.state.results.faveFood}</h2>
         <h2><strong>Place:</strong> {this.state.results.favePlace}</h2>
         <h2><strong>Did you know?:</strong> {this.state.results.funFact}</h2>
