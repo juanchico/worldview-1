@@ -4,13 +4,13 @@ import BasicMap from "./components/Map/map.js"
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
 import NavBar from "./components/NavBar/index";
-import Feed from "./components/pages/Feed";
+import Feed from "./components/pages/Feed/index";
 import Country from "./components/pages/Country/index";
 import Profile from "./components/pages/Profile/index";
-import FProfile from "./components/pages/FProfile";
+import FProfile from "./components/pages/FProfile/index";
 import SignUp from "./components/pages/signup/SignUp";
 import Login from "./components/pages/Login/index";
-import ErrorPage from "./components/pages/Error";
+import ErrorPage from "./components/pages/Error/index";
 
 class App extends Component {
 

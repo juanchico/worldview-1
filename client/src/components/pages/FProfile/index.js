@@ -2,6 +2,7 @@ import React from "react";
 // import SignUp fromimport React from "react";
 // import {Link} from "react-router-dom";
 import axios from "axios";
+import "./style.css";
 
 class FProfile extends React.Component {
   state = {

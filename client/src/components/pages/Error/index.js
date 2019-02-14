@@ -1,5 +1,6 @@
 import React from "react";
 import errormap from './emap.png';
+import "./style.css";
 
 function ErrorPage() {
   return (
