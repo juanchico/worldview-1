@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import flags from "./flags.json";
+import spin from "./map.css"
 // import {Link} from "react-router-dom";
 
 import {
@@ -19,7 +20,8 @@ const wrapperStyles = {
 class BasicMap extends Component {
 
 mapNameClick= (country)=> {
-window.location.assign(`/Country/${country.properties.name}`);
+  console.log(country);
+// window.location.assign(`/Country/${country.properties.name}`);
 // country.preventDefault();
 }
 
@@ -34,9 +36,11 @@ window.location.assign(`/Country/${country.properties.name}`);
     return (
       <div style={wrapperStyles}>
 <svg style={{width:"100%", height:"100%"}} >
-<pattern id="pattern" x="200" y="10" width="100" height="95" patternUnits="userSpaceOnUse">
-<image xlinkHref={flags.Canada.flag} x="0" y="0" width="100" height="100" />
+{Object.keys(flags).map((keyName, i) => (
+<pattern id={"pattern_" + keyName.replace(/the /g,'').replace(/ /g,'')} x="100" y="5" width="95" height="67" patternUnits="userSpaceOnUse" key={i}>
+<image xlinkHref={flags[keyName].flag} x="0" y="0" width="100" height="100" />
 </pattern>
+))}
 </svg>
       {/* <NavBar></NavBar> */}
         <ComposableMap
@@ -47,9 +51,18 @@ window.location.assign(`/Country/${country.properties.name}`);
         //   width={980}
         //   height={551}
           style={{
-            width: "100%",
-            height: "auto",
-            marginLeft: "0px"
+            position: "absolute",
+            top: "200px",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            width: "900px",
+            height: "900px",
+            margin: "auto", borderRadius: "50%",
+            backgroundSize: "cover",
+            backgroundColor: "#160c55",
+            boxShadow: "-20px -20px 50px #000 inset, 0 0 20px 2px #000",
+            animation: "spin 30s linear alternate infinite",
           }}
           >
           <ZoomableGroup center={[0,20]} disablePanning>
@@ -67,7 +80,7 @@ window.location.assign(`/Country/${country.properties.name}`);
                       outline: "none",
                     },
                     hover: {
-                      fill: "url(#pattern)",
+                      fill: "url(#pattern_" + geography.properties.name.replace(/the /g,'').replace(/ /g,'') + ")",
                       stroke: "#607D8B",
                       strokeWidth: 0.75,
                       outline: "none",
