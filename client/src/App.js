@@ -34,11 +34,9 @@ class App extends Component {
         authenticated: res.data,
         
       });
-      console.log(res);
     });
   }
   handleLogOut = ()=>{
-    // console.log(this);
     axios.get("/logout").then((res)=>{
       this.setState({
         authenticated: false
@@ -46,9 +44,6 @@ class App extends Component {
     });
   }
   setLogin = (current) => {
-   // console.log(this) ; 
-     // login component triggered authentication = true
-
     this.setState({
       authenticated: current
     });

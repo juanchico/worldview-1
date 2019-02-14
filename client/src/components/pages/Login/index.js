@@ -26,7 +26,6 @@ class Login extends Component {
         payload = {email, password};
         // send credentials to back-end to check account
     axios.post("/login", payload).then((res) => {
-        //console.log(res.data);
       if (res.data) {
         // if successful, set auth value on parent
         this.setState({name:res.data.name});
@@ -48,7 +47,7 @@ class Login extends Component {
         <div className="row">
           <div className="col-md-4">
           </div>
-          <div className="col-md-4 text-center">
+          <div className="col-md-4 text-center" id="loginForm">
             <img src={logo} alt=""/>
             <form>
               <input

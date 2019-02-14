@@ -9,7 +9,6 @@ class Profile extends Component {
   componentDidMount() {
     // check if user has already logged in successfully
     axios.get("/profile").then((res) => {
-     // console.log(res);
       this.setState({
         results: res.data
       });

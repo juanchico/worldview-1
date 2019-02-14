@@ -14,7 +14,6 @@ class Country extends React.Component {
       this.setState({
         results: response.data
       });
-    //   console.log(results)
     });
   }
 

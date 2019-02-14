@@ -27,17 +27,6 @@ class SignUp extends Component {
     });
   };
 
-  // toTitleCase = text => text.toLowerCase()
-  // .split(' ')
-  // .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-  // .join(' ');
-
-  // toTitleCase(str) {
-  //   return str.replace(/\w\S*/g, function(txt) {
-  //     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-  //   })
-  // }
-
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();

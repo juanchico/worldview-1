@@ -1,6 +1,4 @@
 import React from "react";
-// import SignUp fromimport React from "react";
-// import {Link} from "react-router-dom";
 import axios from "axios";
 import "./style.css";
 
@@ -13,11 +11,7 @@ class FProfile extends React.Component {
 
   componentDidMount() {
     // after component loads, get all products from db
-    //this call needs to get the person's profile we asked about and the users followers below
-    // console.log(response.data.followers)
-    // axios.get(`/fprofile`).then(response => console.log(response.data))
     axios.get(`/fprofile/${this.props.match.params._id}`).then((response) => {
-      console.log(response);
       this.setState({
         results: response.data
       });

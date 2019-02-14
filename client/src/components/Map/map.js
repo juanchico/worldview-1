@@ -20,10 +20,8 @@ const wrapperStyles = {
 class BasicMap extends Component {
 
 mapNameClick= (country)=> {
-  // console.log(country);
 window.location.assign(`/Country/${country.properties.name}`);
 // country.preventDefault();
-// it WORKS!!!!
 }
 
 //flag shows up over the country on the map when hovered over

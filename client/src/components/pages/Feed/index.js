@@ -10,7 +10,6 @@ class Feed extends React.Component {
 
   componentDidMount() {
     axios.get(`/Feed/${this.props.current._id}`).then((response) => {
-      console.log(response);
         this.setState({
           results: response.data[0].following
         });
