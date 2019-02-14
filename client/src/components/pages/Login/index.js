@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import logo from "./logo2wv.png";
 import "./style.css";
 
 class Login extends Component {
@@ -47,7 +48,8 @@ class Login extends Component {
         <div className="row">
           <div className="col-md-4">
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 text-center">
+            <img src={logo} alt=""/>
             <form>
               <input
                 className="form-control"
@@ -69,6 +71,8 @@ class Login extends Component {
 
               <span>{this.state.error}</span>
             </form>
+            <p class="mt-3"><small>Need an account? <a href="/signup">Create your account here.</a></small></p>
+            <p class="mt-5 mb-3 text muted"><a href="/">World View</a> &copy; 2019</p>
           </div>
           <div className="col-md-4">
           </div>
